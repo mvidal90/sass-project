@@ -1,0 +1,31 @@
+html {
+    font-size: 16px;
+}
+
+$primary-color: rgb(54, 177, 54);
+$font-size-md: 1.5rem;
+$font-size-lg: 2rem;
+
+h1 {
+    color: $primary-color;
+    margin-left: 40px;
+}
+
+.main{
+    margin-bottom: 2rem;
+    button {
+        border-color: $primary-color;
+        color: $primary-color;
+        background-color: lighten($color: $primary-color, $amount: 50);
+        font-size: $font-size-md;
+        &:hover {
+            border-color: lighten($color: $primary-color, $amount: 50);
+            color: lighten($color: $primary-color, $amount: 50);
+            background-color: $primary-color;
+        }
+    }
+    p {
+        color: darken($color: $primary-color, $amount: 20);
+        font-size: $font-size-lg;
+    }
+}
