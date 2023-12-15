@@ -3,8 +3,17 @@ html {
 }
 
 $primary-color: rgb(54, 177, 54);
+$secondary-color: rgb(54, 99, 177);
 $font-size-md: 1.5rem;
 $font-size-lg: 2rem;
+$font-size-xl: 3rem;
+$font-size-xxl: 4rem;
+
+@mixin center-children-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 h1 {
     color: $primary-color;
@@ -13,19 +22,68 @@ h1 {
 
 .main{
     margin-bottom: 2rem;
-    button {
-        border-color: $primary-color;
-        color: $primary-color;
-        background-color: lighten($color: $primary-color, $amount: 50);
+    .btn {
         font-size: $font-size-md;
-        &:hover {
-            border-color: lighten($color: $primary-color, $amount: 50);
-            color: lighten($color: $primary-color, $amount: 50);
-            background-color: $primary-color;
+        &.btn-primary {
+            border-color: $primary-color;
+            color: $primary-color;
+            background-color: lighten($color: $primary-color, $amount: 50);
+            &:hover {
+                border-color: lighten($color: $primary-color, $amount: 50);
+                color: lighten($color: $primary-color, $amount: 50);
+                background-color: $primary-color;
+            }
+        }
+        &.btn-secondary {
+            border-color: $secondary-color;
+            color: $secondary-color;
+            background-color: lighten($color: $secondary-color, $amount: 50);
+            &:hover {
+                border-color: lighten($color: $secondary-color, $amount: 50);
+                color: lighten($color: $secondary-color, $amount: 50);
+                background-color: $secondary-color;
+            }
+        }
+        &:not(.btn-primary) {
+            border-radius: 1.25rem;
         }
     }
     p {
         color: darken($color: $primary-color, $amount: 20);
         font-size: $font-size-lg;
+    }
+}
+
+.box-container {
+    position: relative;
+    width: 100%;
+    @include center-children-box();
+
+    .box {
+        $size: $font-size-xxl;
+        position: relative;
+        height: 10rem;
+        width: 10rem;
+        background-color: $primary-color;
+        &::before, &::after {
+            position: absolute;
+            font-size: $size;
+            top: calc(50% - $size/2);
+        }
+        &::before {
+            content: "💪";
+            left: calc($size * -1);
+        }
+        &::after {
+            content: "🤚";
+            right:  calc($size * -1);
+        }
+    }
+    &::after{
+        position: absolute;
+        content: "";
+        border-bottom: 1rem dotted $primary-color;
+        bottom: -2rem;
+        width: 50%;
     }
 }
