@@ -1,0 +1,27 @@
+
+.btn {
+    font-size: $font-size-md;
+    &.btn-primary {
+        border-color: $primary-color;
+        color: $primary-color;
+        background-color: lighten($color: $primary-color, $amount: 50);
+        &:hover {
+            border-color: lighten($color: $primary-color, $amount: 50);
+            color: lighten($color: $primary-color, $amount: 50);
+            background-color: $primary-color;
+        }
+    }
+    &.btn-secondary {
+        border-color: $secondary-color;
+        color: $secondary-color;
+        background-color: lighten($color: $secondary-color, $amount: 50);
+        &:hover {
+            border-color: lighten($color: $secondary-color, $amount: 50);
+            color: lighten($color: $secondary-color, $amount: 50);
+            background-color: $secondary-color;
+        }
+    }
+    &:not(.btn-primary) {
+        border-radius: 1.25rem;
+    }
+}

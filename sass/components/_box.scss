@@ -1,0 +1,34 @@
+
+.box__container {
+    position: relative;
+    width: 100%;
+    @include center-children-box();
+
+    .box__item {
+        $size: $font-size-xxl;
+        position: relative;
+        height: 10rem;
+        width: 10rem;
+        background-color: $primary-color;
+        &::before, &::after {
+            position: absolute;
+            font-size: $size;
+            top: calc(50% - $size/2);
+        }
+        &::before {
+            content: "💪";
+            left: calc($size * -1);
+        }
+        &::after {
+            content: "🤚";
+            right:  calc($size * -1);
+        }
+    }
+    &::after{
+        position: absolute;
+        content: "";
+        border-bottom: 1rem dotted $primary-color;
+        bottom: -2rem;
+        width: 50%;
+    }
+}
