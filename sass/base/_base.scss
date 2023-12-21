@@ -5,7 +5,9 @@ html {
 
 h1 {
     color: $primary-color;
-    // margin-left: 40px;
+    // overflow: hidden;
+    // white-space: nowrap;
+    // animation: typing 5s steps(200, end) forwards;
 }
 
 p {
